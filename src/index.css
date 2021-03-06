@@ -1,0 +1,50 @@
+@font-face {
+  font-family: 'MyFont';
+  src: local('MyFont'), url(./THEMURDER.ttf) format('truetype');
+}
+
+h1 {
+  font-family: 'MyFont' !important;
+  color: white;
+}
+
+p {
+  color: white;
+}
+
+.hover {
+    webkit-filter: blur(4px);  /* Chrome, Safari, Opera */
+    filter: blur(4px);
+    clip-path: polygon(0 0, 0% 100%, 100% 0);
+
+}
+
+.hovertmp {
+    clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+    position: absolute;
+    left: 20px;
+}
+
+
+.hover:hover {
+    webkit-filter: blur(0px); /* Chrome, Safari, Opera */
+    filter: blur(0px);
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  background-color: black;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
