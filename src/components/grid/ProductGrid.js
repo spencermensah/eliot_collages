@@ -12,7 +12,14 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+
 import Select from '@material-ui/core/Select';
+
+
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormLabel from '@material-ui/core/FormLabel';
 
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
@@ -56,28 +63,28 @@ function ProductGrid(props) {
 
   if (useMediaQuery(theme.breakpoints.up('md'))) {
     if (size == "small") {
-      styleToUse = {top:150,left:265,height:230};
+      styleToUse = {top:150,left:235,height:230};
     } else if (size == "md") {
-      styleToUse =  {top:150,left:240,height:300};
+      styleToUse =  {top:150,left:200,height:300};
     } else if (size == "large") {
       styleToUse =  {top:140,left:212,height:380};
     } else if (size == "bogo") {
-      styleToUse =  {top:80,left:235,height:320,clipPath:"polygon(0 30%, 100% 30%, 100% 60%, 0 60%)"};
+      styleToUse =  {top:80,left:200,height:300,clipPath:"polygon(0 30%, 100% 30%, 100% 60%, 0 60%)"};
     } else {
       styleToUse =  {top:140,left:212,height:380};
     }
   } else {
     if (size == "small") {
-      styleToUse = {top:100 ,left:440 ,height:230 / 2};
+      styleToUse = {top:100 ,left:425 ,height:230 / 2};
       height = height / 2
     } else if (size == "md") {
-      styleToUse =  {top:100,left:430,height:300 / 2};
+      styleToUse =  {top:100,left:410,height:300 / 2};
       height = height / 2
     } else if (size == "large") {
-      styleToUse =  {top:100,left:415,height:380 / 2};
+      styleToUse =  {top:100,left:380,height:380 / 2};
       height = height / 2
     } else if (size == "bogo") {
-      styleToUse =  {top:70,left:425,height:320 / 2,clipPath:"polygon(0 30%, 100% 30%, 100% 60%, 0 60%)"};
+      styleToUse =  {top:70,left:410,height:300 / 2,clipPath:"polygon(0 30%, 100% 30%, 100% 60%, 0 60%)"};
       height = height / 2
     } else {
       styleToUse =  {top:140,left:212,height:380 / 2};
@@ -88,38 +95,26 @@ function ProductGrid(props) {
 
   return (
     <div>
-      <ThemeProvider theme={theme}>
         <Grid container spacing={3}>
           <Grid item xs={12} sm={12} md={6}>
-            <Paper className={classes.paper}>
+            <Paper elevation={0}  className={classes.paper}>
               <img class="tmp" style={{height:height}} src={template}></img>
-              <img class="graphic" style={styleToUse} src={"./img/" + props.value + ".png"} />
+              <img class="graphic" style={styleToUse} src={"./img/" + props.value + ".jpg"} />
             </Paper>
           </Grid>
           <Grid item xs={12} sm={12} md={6}>
-            <Paper className={classes.paper}>
-              <FormControl className={classes.formControl}>
-                <InputLabel shrink id="demo-simple-select-placeholder-label-label">
-                  Pick Graphic Size
-                </InputLabel>
-                <Select
-                  labelId="demo-simple-select-placeholder-label-label"
-                  id="demo-simple-select-placeholder-label"
-                  value={size}
-                  onChange={handleChange}
-                  displayEmpty
-                  className={classes.selectEmpty}
-                >
-                  <MenuItem value={"small"}>Small</MenuItem>
-                  <MenuItem value={"md"}>Medium</MenuItem>
-                  <MenuItem value={"large"}>Large</MenuItem>
-                  <MenuItem value={"bogo"}>Box Logo</MenuItem>
-                </Select>
+            <Paper elevation={0} className={classes.paper}>
+              <FormControl component="fieldset">
+                <FormLabel component="legend">Graphic Size</FormLabel>
+                <RadioGroup aria-label="gender" name="gender1" value={size} onChange={handleChange}>
+                  <FormControlLabel value="small" control={<Radio />} label="Small" />
+                  <FormControlLabel value="md" control={<Radio />} label="Large" />
+                  <FormControlLabel value="bogo" control={<Radio />} label="Box Logo" />
+                </RadioGroup>
               </FormControl>
             </Paper>
           </Grid>
         </Grid>
-      </ThemeProvider>
     </div>
   );
 }

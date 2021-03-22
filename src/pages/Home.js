@@ -31,7 +31,7 @@ function Home() {
             playing={true}
             loop={true}
             muted={true}
-            width="300px"
+            width="800px"
           />
         </div>
 

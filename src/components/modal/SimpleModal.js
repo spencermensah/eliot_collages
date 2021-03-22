@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     position: 'absolute',
     width: 900,
-    backgroundColor: 'black',
+    backgroundColor: 'white',
     border: '2px solid #000',
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
@@ -63,13 +63,7 @@ export default function SimpleModal(props) {
 
   return (
     <div>
-      <p style={{textAlign:"left"}}>T-Shirts - £35</p>
-      <div onClick={handleOpen}  class="banner" >
-          <div onClick={handleClickChild} >
-            <div style={{background:"url(https://spencermensah.github.io/img/" + props.value + ".png) no-repeat 50% 50%"}} class="overlay"></div>
-          </div>
-      </div>
-      <p style={{textAlign:"right"}}>Prints - £20</p>
+      <img onClick={handleOpen} style={{width:300}} src={"./img/" + props.value + ".jpg"} />
       <Modal
         open={opentshirt}
         onClose={handleClose}
