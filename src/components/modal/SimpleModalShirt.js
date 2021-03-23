@@ -7,6 +7,9 @@ import ProductGrid from './../grid/ProductGrid';
 import ProductGridPrint from './../grid/ProductGridPrint';
 import ProductSelect from './../grid/ProductSelect';
 import template from './../template.png'
+import Button from '@material-ui/core/Button';
+
+import tshirt from './tshirt.svg'
 
 function getModalStyle() {
   const top = 50
@@ -22,9 +25,9 @@ function getModalStyle() {
 const useStyles = makeStyles((theme) => ({
   paper: {
     position: 'absolute',
+    width: 900,
     backgroundColor: 'white',
     border: '2px solid #000',
-    width: 100,
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
   },
@@ -64,7 +67,7 @@ export default function SimpleModal(props) {
 
   return (
     <div>
-      <img onClick={handleOpen} style={{width:300}} src={"./img/" + props.value + ".jpg"} />
+      <img onClick={handleOpen} src={tshirt} alt="React Logo" />
       <Modal
         open={opentshirt}
         onClose={handleClose}
@@ -74,7 +77,7 @@ export default function SimpleModal(props) {
 
       <div style={modalStyle} className={classes.paper}>
         <DialogContent>
-          <a><ProductSelect value={props.value}/></a>
+          <a><ProductGrid value={props.value}/></a>
         </DialogContent>
       </div>
 

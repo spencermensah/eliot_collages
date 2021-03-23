@@ -9,6 +9,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
 
 import ProductGrid from './../grid/ProductGrid';
+import ProductSelect from './../grid/ProductSelect';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -37,7 +38,7 @@ export default function (props) {
         aria-describedby="alert-dialog-slide-description"
       >
         <DialogContent>
-          <a onClick={handleClickOpen}><ProductGrid value={props.value}/></a>
+          <a onClick={handleClickOpen}><ProductSelect value={props.value}/></a>
         </DialogContent>
       </Dialog>
     </div>

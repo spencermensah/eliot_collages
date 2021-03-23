@@ -1,11 +1,35 @@
 .App {
   text-align: center;
 }
+
+.Content {
+  padding-top: 270px;
+  text-align: center;
+}
+
 .SplashApp {
   text-align: center;
   padding-top: 10%;
 }
 
+.MuiDrawer-paperAnchorTop {
+    height: 100% !important;
+
+}
+
+.Menu {
+    background-image: url('bg_invert.gif');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 100%;
+}
+
+.retro h1 {
+  color: white;
+  font-family: 'MyFont' !important;
+  font-size: 20px;
+}
 
 .CustomApp {
   text-align: center;
@@ -17,7 +41,7 @@
 }
 
 h1 {
-  color: white
+  color: black
 }
 
 #alert-dialog-description {
@@ -63,6 +87,9 @@ body {
 
 }
 
+#drawer {
+  background-color: black !important;
+}
 
 .overlay {
     position: absolute;
@@ -74,8 +101,6 @@ body {
 
 
 h1 {
-    position: absolute;
-    bottom: 0;
     right: 20px;
     z-index: 11;
     font-weight: 300;

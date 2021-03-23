@@ -6,6 +6,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import template from './../template.png'
 import SimpleSelect from './../select/SimpleSelect';
 
+import SimpleModalShirt from './../modal/SimpleModalShirt';
+import SimpleModalPrint from './../modal/SimpleModalPrint';
+
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 import InputLabel from '@material-ui/core/InputLabel';
@@ -42,7 +45,7 @@ const theme = createMuiTheme({
   },
 });
 
-function ProductGrid(props) {
+function ProductSelect(props) {
   const classes = useStyles();
   const [size, setSize] = React.useState('small');
 
@@ -55,37 +58,10 @@ function ProductGrid(props) {
 
   return (
     <div>
-        <Grid container spacing={3}>
-          <Grid item xs={12} sm={12} md={6}>
-            <Paper className={classes.paper}>
-              <img class="tmp" style={{height:300}} src={"./img/" + props.value + ".jpg"}></img>
-            </Paper>
-          </Grid>
-          <Grid item xs={12} sm={12} md={6}>
-            <Paper className={classes.paper}>
-              <FormControl className={classes.formControl}>
-                <InputLabel shrink id="demo-simple-select-placeholder-label-label">
-                  Pick Graphic Size
-                </InputLabel>
-                <Select
-                  labelId="demo-simple-select-placeholder-label-label"
-                  id="demo-simple-select-placeholder-label"
-                  value={size}
-                  onChange={handleChange}
-                  displayEmpty
-                  className={classes.selectEmpty}
-                >
-                  <MenuItem value={"small"}>Small</MenuItem>
-                  <MenuItem value={"md"}>Medium</MenuItem>
-                  <MenuItem value={"large"}>Large</MenuItem>
-                  <MenuItem value={"bogo"}>Box Logo</MenuItem>
-                </Select>
-              </FormControl>
-            </Paper>
-          </Grid>
-        </Grid>
+      <SimpleModalShirt value={props.value}/>
+      <SimpleModalPrint value={props.value}/>
     </div>
   );
 }
 
-export default ProductGrid;
+export default ProductSelect;
